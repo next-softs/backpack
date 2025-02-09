@@ -57,7 +57,7 @@ class Backpack:
         return resp.json()
 
     def get_ip(self):
-        return self.call("http://ip-api.com/json", timeout=10).json()
+        return self.call("http://ip-api.com/json").json()
 
     def place_order(self, **params):
         return self.call('POST', 'api/v1/order', 'orderExecute', **params)
