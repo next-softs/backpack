@@ -49,7 +49,7 @@ class Backpack:
         return headers
 
     def call(self, method, url, instruction="", **params):
-        resp = requests.request(method.upper(), self.host + url, json=params if instruction and params else None, headers=self.sign(instruction, params), timeout=10)
+        resp = self.session.request(method.upper(), self.host + url, json=params if instruction and params else None, headers=self.sign(instruction, params), timeout=10)
 
         if resp.status_code != 200:
             raise Exception(resp.text)
